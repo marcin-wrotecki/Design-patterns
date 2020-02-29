@@ -1,0 +1,33 @@
+@startuml
+
+package main{
+  class main.Adapter{
+        -private SmartPhone smartPhone
+  }
+
+  class main.FlipPhone{
+
+  }
+  class main.Smartphone
+  interface main.IFlipPhone{
+    + void makeCall(String number)
+    + String getContants()
+    + void takePhoto()
+    + String getSpecification()
+
+  }
+
+  interface main.ISmartPhone{
+    + void setPhoto(String img);
+    + void makeCall(String number);
+    + void takePhotoButBetter(String choosenFilter);
+    + String getSpecification();
+    + String getContants();
+  }
+   main.ISmartPhone<|--main.Adapter
+   main.IFlipPhone<|--main.Adapter
+   main.ISmartPhone<|--main.Smartphone
+   main.IFlipPhone<|--main.FlipPhone
+
+}
+@enduml
