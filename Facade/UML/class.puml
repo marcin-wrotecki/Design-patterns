@@ -1,0 +1,37 @@
+@startuml
+
+
+class LoginFacade{
+    - Login login;
+     - LoginSystem loginSystem;
+    +void showMenu()
+    +void authorization(String userName, String password,int option)
+    +int getNumberOfFriends(String userName)
+    +boolean identification(String login, String password)
+    + boolean createUser(String login, String password)
+}
+class LoginSystem{
+    - static HashMap<String,String> users;
+    - static HashMap<String, Integer> usersFriends;
+    +void addFriend(String userName)
+    +boolean checkCorrectness(String userName, String password)
+    +boolean createUser(String userName, String password)
+    +int getNumberOfFriends(String userName)
+}
+
+class Main{
+    + static void main(String[] args)
+}
+class Login{
+    +void showMenu()
+    +int operation()
+    +boolean addFriend()
+    +void sendMessage()
+}
+LoginFacade -->LoginSystem
+LoginFacade -->Login
+
+Main .up>LoginFacade:user
+
+
+@enduml
