@@ -1,5 +1,6 @@
 package system;
 
+import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,7 +12,13 @@ public class Login {
         System.out.println("1. Sign in");
         System.out.println("2. Sign up");
         System.out.println("3. Switch off system");
-        int number = sc.nextInt();
+        int number=0;
+        try{
+            number = sc.nextInt();
+        }catch(Exception e){
+            System.out.println("You should insert number");
+            return-1;
+        }
         if(number==1 || number==2||number==3) {
             return number;
         }
@@ -27,7 +34,14 @@ public class Login {
         System.out.println("3. Get number of your friends");
         System.out.println("4. Sign out");
         Scanner sc = new Scanner(System.in);
-        return sc.nextInt();
+        int number=0;
+        try{
+            number = sc.nextInt();
+        }catch(Exception e){
+            System.out.println("You should insert number");
+            return-1;
+        }
+        return number;
     }
 
     public boolean addFriend(){
@@ -37,7 +51,7 @@ public class Login {
             return true;
         }
         else {
-            System.out.println("Can't add new friend");
+            System.out.println("Can't add new friend. Try one more time!");
             return false;
         }
 
